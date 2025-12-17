@@ -23,8 +23,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         }
         
         @keyframes glow {
-            0%, 100% { text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff; }
-            50% { text-shadow: 0 0 40px #af00ff, 0 0 80px #af00ff, 0 0 100px #af00ff; }
+            0%, 100% { text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000; }
+            50% { text-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000; }
         }
         
         @keyframes hexSpin {
@@ -109,7 +109,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         
-        .kd-logo-purple {
+        .kd-logo-dark {
             color: #af00ff;
             text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff;
             animation: glow 2s ease-in-out infinite;
@@ -290,7 +290,7 @@ async function showSplashScreen() {
         <div class="kd-splash-content">
             <div class="kd-logo-container">
                 <div class="kd-logo-text">
-                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-purple">PURPLE</span>
+                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">DARK</span>
                 </div>
             </div>
 
@@ -435,7 +435,7 @@ function setupMain(){
                                 type: "radio", alignment: "default", static: false, graded: true,
                                 options: {
                                     choices: [
-                                        { content: "💜", correct: true, id: "correct-choice" }
+                                        { content: "❤️", correct: true, id: "correct-choice" }
                                     ],
                                     randomize: false, multipleSelect: false, displayCount: null, deselectEnabled: false
                                 },
@@ -611,7 +611,7 @@ loadScript('https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js', '
     const remainingTime = Math.max(0, 3000 - elapsedTime);
     await delay(remainingTime);
 
-    sendToast("💜 | KhanPurple iniciou!");
+    sendToast("❤️ | KhanRed iniciou!");
 
     await delay(2000);
 
