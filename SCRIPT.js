@@ -78,7 +78,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         
         .kd-particle {
             position: absolute;
-            background: #af00ff;
+            background: #ff0000;
             border-radius: 50%;
             animation: float 15s infinite ease-in-out;
             opacity: 0.1;
@@ -109,16 +109,16 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         
-        .kd-logo-dark {
-            color: #af00ff;
-            text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff;
+        .kd-logo-red {
+            color: #ff0000;
+            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
             animation: glow 2s ease-in-out infinite;
         }
         
         .kd-divider {
             width: 300px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #af00ff, transparent);
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
             margin: 30px auto;
             position: relative;
         }
@@ -129,10 +129,10 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: #af00ff;
+            background: #ff0000;
             border-radius: 50%;
             top: -3px;
-            box-shadow: 0 0 10px #af00ff;
+            box-shadow: 0 0 10px #ff0000;
         }
         
         .kd-divider::before { left: 0; }
@@ -157,8 +157,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             width: 60px;
             height: 60px;
             border: 3px solid transparent;
-            border-top-color: #af00ff;
-            border-bottom-color: #af00ff;
+            border-top-color: #ff0000;
+            border-bottom-color: #ff0000;
             border-radius: 10px;
             animation: hexSpin 2s linear infinite;
         }
@@ -175,14 +175,14 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-hexagon-core {
             width: 20px;
             height: 20px;
-            background: #af00ff;
+            background: #ff0000;
             border-radius: 50%;
-            box-shadow: 0 0 20px #af00ff;
+            box-shadow: 0 0 20px #ff0000;
             animation: pulse 1.5s ease-in-out infinite;
         }
         
         .kd-loading-text {
-            color: #af00ff;
+            color: #ff0000;
             font-size: 18px;
             margin-top: 20px;
             font-weight: 500;
@@ -208,7 +208,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         
         .kd-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #8b00cc, #af00ff, #d966ff, #af00ff);
+            background: linear-gradient(90deg, #8b00cc, #ff0000, #d966ff, #ff0000);
             background-size: 200% 100%;
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
