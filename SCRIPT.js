@@ -290,7 +290,7 @@ async function showSplashScreen() {
         <div class="kd-splash-content">
             <div class="kd-logo-container">
                 <div class="kd-logo-text">
-                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">DARK</span>
+                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">RED</span>
                 </div>
             </div>
 
