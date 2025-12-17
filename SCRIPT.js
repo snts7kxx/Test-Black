@@ -10,74 +10,47 @@ document.head.appendChild(Object.assign(document.createElement('style'),{innerHT
 /* Splash Screen Styles - VERSÃO MELHORADA */
 document.head.appendChild(Object.assign(document.createElement('style'), {
 innerHTML: `
+/* FUNDO – branco estiloso */
 .kd-splash-screen{
-    position:fixed;
-    inset:0;
-    background:#ffffff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    font-family:MuseoSans,sans-serif;
-    opacity:0;
-    transition:opacity .8s ease;
+    background: radial-gradient(
+        circle at center,
+        #ffffff 0%,
+        #f2f2f2 45%,
+        #e6e6e6 100%
+    );
 }
 
-.kd-particle{
-    background:#000;
-    opacity:.08;
-}
-
-.kd-logo-text{
-    font-size:72px;
-    font-weight:900;
-    letter-spacing:4px;
-}
-
-/* KHAN branco com glow preto */
+/* KHAN – branco com brilho preto */
 .kd-logo-khan{
-    color:#fff;
+    color:#ffffff;
     text-shadow:
-        0 0 10px #000,
-        0 0 25px rgba(0,0,0,.8),
-        0 0 45px rgba(0,0,0,.6);
+        0 0 6px rgba(0,0,0,.9),
+        0 0 14px rgba(0,0,0,.8),
+        0 0 28px rgba(0,0,0,.7);
 }
 
-/* DARK preto com glow branco */
+/* DARK – preto com brilho branco */
 .kd-logo-dark{
-    color:#000;
+    color:#000000;
     text-shadow:
-        0 0 10px #fff,
-        0 0 25px rgba(255,255,255,.9),
-        0 0 45px rgba(255,255,255,.7);
+        0 0 6px rgba(255,255,255,.95),
+        0 0 14px rgba(255,255,255,.85),
+        0 0 28px rgba(255,255,255,.7);
 }
 
-/* Divider */
+/* Divider mais clean */
 .kd-divider{
-    width:280px;
-    height:2px;
-    margin:30px auto;
-    background:linear-gradient(90deg,transparent,#000,transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #000,
+        transparent
+    );
 }
 
-/* Loader */
-.kd-hexagon{
-    border-top-color:#000;
-    border-bottom-color:#000;
-}
-
-.kd-hexagon:nth-child(2){
-    border-top-color:#666;
-    border-bottom-color:#666;
-}
-
-.kd-hexagon-core{
-    background:#000;
-    box-shadow:0 0 20px rgba(0,0,0,.7);
-}
-
-/* Texto */
-.kd-loading-text{
+/* Textos */
+.kd-loading-text,
+.kd-progress-percent{
     color:#000;
 }
 
@@ -85,14 +58,14 @@ innerHTML: `
     color:rgba(0,0,0,.6);
 }
 
-/* Progress */
+/* Barra de progresso */
 .kd-progress-bar{
-    background:rgba(0,0,0,.1);
+    background:rgba(0,0,0,.12);
 }
 
 .kd-progress-fill{
     background:linear-gradient(90deg,#000,#444,#000);
-    box-shadow:0 0 15px rgba(0,0,0,.6);
+    box-shadow:0 0 12px rgba(0,0,0,.6);
 }
 
 .kd-progress-percent{
