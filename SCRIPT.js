@@ -109,7 +109,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         
-        .kd-logo-red {
+        .kd-logo-dark {
             color: #ff0000;
             text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
             animation: glow 2s ease-in-out infinite;
@@ -199,7 +199,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(255, 0, 0, 0.1);
+            background: rgba(175, 0, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -212,7 +212,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             background-size: 200% 100%;
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 20px #ff0000;
+            box-shadow: 0 0 20px #af00ff;
             animation: shimmer 2s linear infinite;
             position: relative;
         }
@@ -249,7 +249,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            color: rgba(175, 0, 255, 0.5);
+            color: rgba(255, 0, 0, 0.5);
             font-size: 12px;
             letter-spacing: 2px;
         }
@@ -270,7 +270,7 @@ function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: tex
 
 async function showSplashScreen() { 
     splashScreen.className = 'kd-splash-screen';
-
+    
     // Criar partículas
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'kd-particles';
@@ -290,7 +290,7 @@ async function showSplashScreen() {
         <div class="kd-splash-content">
             <div class="kd-logo-container">
                 <div class="kd-logo-text">
-                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">RED</span>
+                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">DARK</span>
                 </div>
             </div>
 
@@ -318,7 +318,7 @@ async function showSplashScreen() {
 
         <div class="kd-version">v2.0 • SNTS7KXX</div>
     `; 
-
+    
     splashScreen.insertBefore(particlesContainer, splashScreen.firstChild);
     document.body.appendChild(splashScreen); 
     setTimeout(() => splashScreen.style.opacity = '1', 10);
@@ -435,7 +435,7 @@ function setupMain(){
                                 type: "radio", alignment: "default", static: false, graded: true,
                                 options: {
                                     choices: [
-                                        { content: "❤️", correct: true, id: "correct-choice" }
+                                        { content: "💜", correct: true, id: "correct-choice" }
                                     ],
                                     randomize: false, multipleSelect: false, displayCount: null, deselectEnabled: false
                                 },
@@ -611,7 +611,7 @@ loadScript('https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js', '
     const remainingTime = Math.max(0, 3000 - elapsedTime);
     await delay(remainingTime);
 
-    sendToast("❤️ | KhanRed iniciou!");
+    sendToast("💜 | KhanRed iniciou!");
 
     await delay(2000);
 
