@@ -9,252 +9,102 @@ document.head.appendChild(Object.assign(document.createElement('style'),{innerHT
 
 /* Splash Screen Styles - VERSÃO MELHORADA */
 document.head.appendChild(Object.assign(document.createElement('style'), {
-    innerHTML: `
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-100px) translateX(50px); }
-            50% { transform: translateY(-50px) translateX(-50px); }
-            75% { transform: translateY(-150px) translateX(30px); }
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 30px #ffffff, 0 0 60px #ffffff; }
-            50% { text-shadow: 0 0 40px #af00ff, 0 0 80px #fffff, 0 0 100px #ffffff; }
-        }
-        
-        @keyframes hexSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.7; }
-        }
-        
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
-        @keyframes slide {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200%); }
-        }
-        
-        .kd-splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 1s ease;
-            user-select: none;
-            font-family: MuseoSans, sans-serif;
-        }
-        
-        .kd-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .kd-particle {
-            position: absolute;
-            background: #af00ff;
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
-            opacity: 0.1;
-        }
-        
-        .kd-splash-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        
-        .kd-logo-container {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        .kd-logo-text {
-            font-size: 72px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .kd-logo-khan {
-            color: white;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-        
-        .kd-logo-dark {
-            color: #af00ff;
-            text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff;
-            animation: glow 2s ease-in-out infinite;
-        }
-        
-        .kd-divider {
-            width: 300px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #af00ff, transparent);
-            margin: 30px auto;
-            position: relative;
-        }
-        
-        .kd-divider::before,
-        .kd-divider::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #af00ff;
-            border-radius: 50%;
-            top: -3px;
-            box-shadow: 0 0 10px #af00ff;
-        }
-        
-        .kd-divider::before { left: 0; }
-        .kd-divider::after { right: 0; }
-        
-        .kd-loader-container {
-            margin: 40px 0;
-        }
-        
-        .kd-hexagon-loader {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .kd-hexagon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 3px solid transparent;
-            border-top-color: #af00ff;
-            border-bottom-color: #af00ff;
-            border-radius: 10px;
-            animation: hexSpin 2s linear infinite;
-        }
-        
-        .kd-hexagon:nth-child(2) {
-            width: 45px;
-            height: 45px;
-            border-top-color: #d966ff;
-            border-bottom-color: #d966ff;
-            animation-duration: 1.5s;
-            animation-direction: reverse;
-        }
-        
-        .kd-hexagon-core {
-            width: 20px;
-            height: 20px;
-            background: #af00ff;
-            border-radius: 50%;
-            box-shadow: 0 0 20px #af00ff;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        .kd-loading-text {
-            color: #af00ff;
-            font-size: 18px;
-            margin-top: 20px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            animation: fadeInOut 2s ease-in-out infinite;
-        }
-        
-        .kd-progress-container {
-            width: 400px;
-            margin: 30px auto 20px;
-            position: relative;
-        }
-        
-        .kd-progress-bar {
-            width: 100%;
-            height: 6px;
-            background: rgba(175, 0, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        .kd-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #8b00cc, #af00ff, #d966ff, #af00ff);
-            background-size: 200% 100%;
-            width: 0%;
-            transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 20px #af00ff;
-            animation: shimmer 2s linear infinite;
-            position: relative;
-        }
-        
-        .kd-progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: slide 1.5s infinite;
-        }
-        
-        .kd-progress-percent {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-        
-        .kd-plugin-status {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 13px;
-            margin-top: 20px;
-            min-height: 20px;
-            letter-spacing: 1px;
-        }
-        
-        .kd-version {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(175, 0, 255, 0.5);
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-    `
+innerHTML: `
+.kd-splash-screen{
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    font-family:MuseoSans,sans-serif;
+    opacity:0;
+    transition:opacity .8s ease;
+}
+
+.kd-particle{
+    background:#000;
+    opacity:.08;
+}
+
+.kd-logo-text{
+    font-size:72px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+/* KHAN branco com glow preto */
+.kd-logo-khan{
+    color:#fff;
+    text-shadow:
+        0 0 10px #000,
+        0 0 25px rgba(0,0,0,.8),
+        0 0 45px rgba(0,0,0,.6);
+}
+
+/* DARK preto com glow branco */
+.kd-logo-dark{
+    color:#000;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px rgba(255,255,255,.9),
+        0 0 45px rgba(255,255,255,.7);
+}
+
+/* Divider */
+.kd-divider{
+    width:280px;
+    height:2px;
+    margin:30px auto;
+    background:linear-gradient(90deg,transparent,#000,transparent);
+}
+
+/* Loader */
+.kd-hexagon{
+    border-top-color:#000;
+    border-bottom-color:#000;
+}
+
+.kd-hexagon:nth-child(2){
+    border-top-color:#666;
+    border-bottom-color:#666;
+}
+
+.kd-hexagon-core{
+    background:#000;
+    box-shadow:0 0 20px rgba(0,0,0,.7);
+}
+
+/* Texto */
+.kd-loading-text{
+    color:#000;
+}
+
+.kd-plugin-status{
+    color:rgba(0,0,0,.6);
+}
+
+/* Progress */
+.kd-progress-bar{
+    background:rgba(0,0,0,.1);
+}
+
+.kd-progress-fill{
+    background:linear-gradient(90deg,#000,#444,#000);
+    box-shadow:0 0 15px rgba(0,0,0,.6);
+}
+
+.kd-progress-percent{
+    color:#000;
+}
+
+.kd-version{
+    color:rgba(0,0,0,.4);
+}
+`
 }));
+
 
 /* Emmiter */
 class EventEmitter{constructor(){this.events={}}on(t,e){"string"==typeof t&&(t=[t]),t.forEach(t=>{this.events[t]||(this.events[t]=[]),this.events[t].push(e)})}off(t,e){"string"==typeof t&&(t=[t]),t.forEach(t=>{this.events[t]&&(this.events[t]=this.events[t].filter(t=>t!==e))})}emit(t,...e){this.events[t]&&this.events[t].forEach(t=>{t(...e)})}once(t,e){"string"==typeof t&&(t=[t]);let s=(...i)=>{e(...i),this.off(t,s)};this.on(t,s)}};
