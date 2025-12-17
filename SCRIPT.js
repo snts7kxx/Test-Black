@@ -199,7 +199,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(175, 0, 255, 0.1);
+            background: rgba(255, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -212,7 +212,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             background-size: 200% 100%;
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 20px #af00ff;
+            box-shadow: 0 0 20px #ff0000;
             animation: shimmer 2s linear infinite;
             position: relative;
         }
