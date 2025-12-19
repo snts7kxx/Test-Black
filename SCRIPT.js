@@ -166,8 +166,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-hexagon:nth-child(2) {
             width: 45px;
             height: 45px;
-            border-top-color: #d966ff;
-            border-bottom-color: #d966ff;
+            border-top-color: #ff5050;
+            border-bottom-color: #ff5050;
             animation-duration: 1.5s;
             animation-direction: reverse;
         }
@@ -199,7 +199,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(175, 0, 255, 0.1);
+            background: rgba(255, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -208,11 +208,11 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         
         .kd-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #8b00cc, #ff0000, #d966ff, #ff0000);
+            background: linear-gradient(90deg, #c20000, #ff0000, #ff5050, #ff0000);
             background-size: 200% 100%;
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 20px #af00ff;
+            box-shadow: 0 0 20px #ff0000;
             animation: shimmer 2s linear infinite;
             position: relative;
         }
