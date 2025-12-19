@@ -109,7 +109,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         
-        .kd-logo-dark {
+        .kd-logo-red {
             color: #ff0000;
             text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
             animation: glow 2s ease-in-out infinite;
@@ -290,7 +290,7 @@ async function showSplashScreen() {
         <div class="kd-splash-content">
             <div class="kd-logo-container">
                 <div class="kd-logo-text">
-                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">DARK</span>
+                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-red">RED</span>
                 </div>
             </div>
 
