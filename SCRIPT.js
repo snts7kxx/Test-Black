@@ -435,7 +435,7 @@ function setupMain(){
                                 type: "radio", alignment: "default", static: false, graded: true,
                                 options: {
                                     choices: [
-                                        { content: "💜", correct: true, id: "correct-choice" }
+                                        { content: "❤️", correct: true, id: "correct-choice" }
                                     ],
                                     randomize: false, multipleSelect: false, displayCount: null, deselectEnabled: false
                                 },
@@ -611,7 +611,7 @@ loadScript('https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js', '
     const remainingTime = Math.max(0, 3000 - elapsedTime);
     await delay(remainingTime);
 
-    sendToast("💜 | KhanRed iniciou!");
+    sendToast("❤️ | KhanRed iniciou!");
 
     await delay(2000);
 
