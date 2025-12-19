@@ -58,7 +58,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #610000 50%, #000000 100%);
             display: flex;
             align-items: center;
             justify-content: center;
