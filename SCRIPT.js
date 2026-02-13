@@ -23,8 +23,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         }
         
         @keyframes glow {
-            0%, 100% { text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000; }
-            50% { text-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000; }
+            0%, 100% { text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff; }
+            50% { text-shadow: 0 0 40px #af00ff, 0 0 80px #af00ff, 0 0 100px #af00ff; }
         }
         
         @keyframes hexSpin {
@@ -58,7 +58,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #000000 0%, #610000 50%, #000000 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,7 +78,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         
         .kd-particle {
             position: absolute;
-            background: #ff0000;
+            background: #af00ff;
             border-radius: 50%;
             animation: float 15s infinite ease-in-out;
             opacity: 0.1;
@@ -109,16 +109,16 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
         
-        .kd-logo-red {
-            color: #ff0000;
-            text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
+        .kd-logo-dark {
+            color: #af00ff;
+            text-shadow: 0 0 30px #af00ff, 0 0 60px #af00ff;
             animation: glow 2s ease-in-out infinite;
         }
         
         .kd-divider {
             width: 300px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+            background: linear-gradient(90deg, transparent, #af00ff, transparent);
             margin: 30px auto;
             position: relative;
         }
@@ -129,10 +129,10 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: #ff0000;
+            background: #af00ff;
             border-radius: 50%;
             top: -3px;
-            box-shadow: 0 0 10px #ff0000;
+            box-shadow: 0 0 10px #af00ff;
         }
         
         .kd-divider::before { left: 0; }
@@ -157,8 +157,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             width: 60px;
             height: 60px;
             border: 3px solid transparent;
-            border-top-color: #ff0000;
-            border-bottom-color: #ff0000;
+            border-top-color: #af00ff;
+            border-bottom-color: #af00ff;
             border-radius: 10px;
             animation: hexSpin 2s linear infinite;
         }
@@ -166,8 +166,8 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-hexagon:nth-child(2) {
             width: 45px;
             height: 45px;
-            border-top-color: #ff5050;
-            border-bottom-color: #ff5050;
+            border-top-color: #d966ff;
+            border-bottom-color: #d966ff;
             animation-duration: 1.5s;
             animation-direction: reverse;
         }
@@ -175,14 +175,14 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-hexagon-core {
             width: 20px;
             height: 20px;
-            background: #ff0000;
+            background: #af00ff;
             border-radius: 50%;
-            box-shadow: 0 0 20px #ff0000;
+            box-shadow: 0 0 20px #af00ff;
             animation: pulse 1.5s ease-in-out infinite;
         }
         
         .kd-loading-text {
-            color: #ff0000;
+            color: #af00ff;
             font-size: 18px;
             margin-top: 20px;
             font-weight: 500;
@@ -199,7 +199,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         .kd-progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(255, 0, 0, 0.1);
+            background: rgba(175, 0, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -208,11 +208,11 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
         
         .kd-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #c20000, #ff0000, #ff5050, #ff0000);
+            background: linear-gradient(90deg, #8b00cc, #af00ff, #d966ff, #af00ff);
             background-size: 200% 100%;
             width: 0%;
             transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 20px #ff0000;
+            box-shadow: 0 0 20px #af00ff;
             animation: shimmer 2s linear infinite;
             position: relative;
         }
@@ -249,7 +249,7 @@ document.head.appendChild(Object.assign(document.createElement('style'), {
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            color: rgba(255, 0, 0, 0.5);
+            color: rgba(175, 0, 255, 0.5);
             font-size: 12px;
             letter-spacing: 2px;
         }
@@ -264,13 +264,21 @@ new MutationObserver((mutationsList) => { for (let mutation of mutationsList) if
 
 /* Misc Functions */
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-const findAndClickBySelector = selector => { const element = document.querySelector(selector); if (element) { element.click(); } };
+const findAndClickBySelector = selector => { 
+    const element = document.querySelector(selector); 
+    if (element) { 
+        console.log(`[KD] Clicando em: ${selector}`);
+        element.click(); 
+        return true;
+    }
+    return false;
+};
 
 function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: text, duration: duration, gravity: gravity, position: "center", stopOnFocus: true, style: { background: "#000000" } }).showToast(); };
 
 async function showSplashScreen() { 
     splashScreen.className = 'kd-splash-screen';
-    
+
     // Criar partículas
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'kd-particles';
@@ -290,7 +298,7 @@ async function showSplashScreen() {
         <div class="kd-splash-content">
             <div class="kd-logo-container">
                 <div class="kd-logo-text">
-                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-red">RED</span>
+                    <span class="kd-logo-khan">KHAN</span><span class="kd-logo-dark">DARK</span>
                 </div>
             </div>
 
@@ -318,7 +326,7 @@ async function showSplashScreen() {
 
         <div class="kd-version">v2.0 • SNTS7KXX</div>
     `; 
-    
+
     splashScreen.insertBefore(particlesContainer, splashScreen.firstChild);
     document.body.appendChild(splashScreen); 
     setTimeout(() => splashScreen.style.opacity = '1', 10);
@@ -379,6 +387,7 @@ function setupMain(){
 
                 try {
                     const data = await clone.json();
+                    console.log('[KD] getAssessmentItem response:', data);
 
                     let item = null;
                     if (data?.data) {
@@ -399,7 +408,10 @@ function setupMain(){
                         if (w.type === 'radio' && w.options?.choices) {
                             const choices = w.options.choices.map((c, i) => ({ ...c, id: c.id || `radio-choice-${i}` }));
                             const correct = choices.find(c => c.correct);
-                            if (correct) answers.push({ type: 'radio', choiceId: correct.id, widgetKey: key });
+                            if (correct) {
+                                answers.push({ type: 'radio', choiceId: correct.id, widgetKey: key });
+                                console.log('[KD] Resposta radio encontrada:', correct.id);
+                            }
                         }
                         else if (w.type === 'numeric-input' && w.options?.answers) {
                             const correct = w.options.answers.find(a => a.status === 'correct');
@@ -407,24 +419,34 @@ function setupMain(){
                                 const val = correct.answerForms?.some(f => f === 'proper' || f === 'improper') 
                                     ? toFraction(correct.value) : String(correct.value);
                                 answers.push({ type: 'numeric', value: val, widgetKey: key });
+                                console.log('[KD] Resposta numérica encontrada:', val);
                             }
                         }
                         else if (w.type === 'expression' && w.options?.answerForms) {
                             const correct = w.options.answerForms.find(f => f.considered === 'correct' || f.form === true);
-                            if (correct) answers.push({ type: 'expression', value: correct.value, widgetKey: key });
+                            if (correct) {
+                                answers.push({ type: 'expression', value: correct.value, widgetKey: key });
+                                console.log('[KD] Resposta de expressão encontrada:', correct.value);
+                            }
                         }
                         else if (w.type === 'grapher' && w.options?.correct) {
                             const c = w.options.correct;
-                            if (c.type && c.coords) answers.push({ 
-                                type: 'grapher', graphType: c.type, coords: c.coords, 
-                                asymptote: c.asymptote || null, widgetKey: key 
-                            });
+                            if (c.type && c.coords) {
+                                answers.push({ 
+                                    type: 'grapher', graphType: c.type, coords: c.coords, 
+                                    asymptote: c.asymptote || null, widgetKey: key 
+                                });
+                                console.log('[KD] Resposta de gráfico encontrada');
+                            }
                         }
                     }
 
                     if (answers.length > 0) {
                         correctAnswers.set(item.id, answers);
+                        console.log('[KD] Total de respostas armazenadas:', answers.length);
                         sendToast(`🔎 | ${answers.length} respostas encontradas!`, 750);
+                    } else {
+                        console.warn('[KD] Nenhuma resposta encontrada para esta questão');
                     }
 
                     if (itemData.question.content?.[0] === itemData.question.content[0].toUpperCase()) {
@@ -435,7 +457,7 @@ function setupMain(){
                                 type: "radio", alignment: "default", static: false, graded: true,
                                 options: {
                                     choices: [
-                                        { content: "❤️", correct: true, id: "correct-choice" }
+                                        { content: "💜", correct: true, id: "correct-choice" }
                                     ],
                                     randomize: false, multipleSelect: false, displayCount: null, deselectEnabled: false
                                 },
@@ -454,6 +476,7 @@ function setupMain(){
                             }
                         }
 
+                        console.log('[KD] Questão modificada automaticamente');
                         sendToast("🎉 | Questão concluída!", 1500);
                         return new Response(JSON.stringify(modified), { 
                             status: res.status, statusText: res.statusText, headers: res.headers 
@@ -469,6 +492,9 @@ function setupMain(){
                     const itemId = bodyObj.variables?.input?.assessmentItemId;
                     const answers = correctAnswers.get(itemId);
 
+                    console.log('[KD] Tentando responder questão. Item ID:', itemId);
+                    console.log('[KD] Respostas disponíveis:', answers);
+
                     if (answers?.length > 0) {
                         const content = [], userInput = {};
                         let state = bodyObj.variables.input.attemptState ? JSON.parse(bodyObj.variables.input.attemptState) : null;
@@ -477,22 +503,26 @@ function setupMain(){
                             if (a.type === 'radio') {
                                 content.push({ selectedChoiceIds: [a.choiceId] });
                                 userInput[a.widgetKey] = { selectedChoiceIds: [a.choiceId] };
+                                console.log('[KD] Marcando resposta radio:', a.choiceId);
                             }
                             else if (a.type === 'numeric') {
                                 content.push({ currentValue: a.value });
                                 userInput[a.widgetKey] = { currentValue: a.value };
                                 if (state?.[a.widgetKey]) state[a.widgetKey].currentValue = a.value;
+                                console.log('[KD] Marcando resposta numérica:', a.value);
                             }
                             else if (a.type === 'expression') {
                                 content.push(a.value);
                                 userInput[a.widgetKey] = a.value;
                                 if (state?.[a.widgetKey]) state[a.widgetKey].value = a.value;
+                                console.log('[KD] Marcando expressão:', a.value);
                             }
                             else if (a.type === 'grapher') {
                                 const graph = { type: a.graphType, coords: a.coords, asymptote: a.asymptote };
                                 content.push(graph);
                                 userInput[a.widgetKey] = graph;
                                 if (state?.[a.widgetKey]) state[a.widgetKey].plot = graph;
+                                console.log('[KD] Marcando gráfico');
                             }
                         });
 
@@ -503,9 +533,13 @@ function setupMain(){
                         body = JSON.stringify(bodyObj);
                         if (input instanceof Request) input = new Request(input, { body });
                         else init.body = body;
+                        
+                        console.log('[KD] Respostas aplicadas com sucesso!');
                         sendToast(`✏️ | ${answers.length} respostas marcadas!`, 2000);
+                    } else {
+                        console.warn('[KD] Nenhuma resposta disponível para marcar');
                     }
-                } catch (e) { console.error(`🚨 Error @ questionSpoof.js\n${e}`); }
+                } catch (e) { console.error(`🚨 Error @ questionSpoof.js (attemptProblem)\n${e}`); }
             }
 
             return originalFetch.apply(this, arguments);
@@ -530,6 +564,7 @@ function setupMain(){
                         body = JSON.stringify(bodyObj);
                         if (input instanceof Request) { input = new Request(input, { body: body }); } 
                         else init.body = body; 
+                        console.log('[KD] Vídeo marcado como concluído');
                         sendToast("🔄 | Vídeo concluído!", 1000)
                     }
                 } catch (e) { console.error(`🚨 Error @ videoSpoof.js\n${e}`); }
@@ -548,35 +583,68 @@ function setupMain(){
             else if (init.body) body = init.body;
             if (body && input.url.includes("mark_conversions")) {
                 try {
-                    if (body.includes("termination_event")) { sendToast("🚫 | Limite de Tempo Bloqueado!", 1200); return; }
+                    if (body.includes("termination_event")) { 
+                        console.log('[KD] Limite de tempo bloqueado');
+                        sendToast("🚫 | Limite de Tempo Bloqueado!", 1200); 
+                        return; 
+                    }
                 } catch (e) { console.error(`🚨 Error @ minuteFarm.js\n${e}`); }
             }
             return originalFetch.apply(this, arguments);
         };
     })();
 
-    /* AutoAnswer */
+    /* AutoAnswer - VERSÃO MELHORADA */
     (function () {
-        const baseSelectors = [
-            `.perseus_hm3uu-sq`,
-            `[data-testid="exercise-check-answer"]`, 
-            `[data-testid="exercise-next-question"]`, 
-            `._1wi2tma4`
+        const buttonSelectors = [
+            `button[data-testid="exercise-check-answer"]`,
+            `button[data-testid="exercise-next-question"]`,
+            `button[class*="check-answer"]`,
+            `button[class*="next-question"]`,
+            `button:has-text("Verificar")`,
+            `button:has-text("Próxima")`,
+            `._1wi2tma4`,
+            `.perseus_hm3uu-sq`
         ];
 
-        khanDarkDominates = true;
+        let khanDarkDominates = true;
+        let lastClickedButton = null;
+        let clickCount = 0;
 
         (async () => { 
             while (khanDarkDominates) {                    
-                const selectorsToCheck = [...baseSelectors];
+                let clicked = false;
 
-                for (const q of selectorsToCheck) {
-                    findAndClickBySelector(q);
-                    if (document.querySelector(q+"> div") && document.querySelector(q+"> div").innerText === "Mostrar resumo") {
-                        sendToast("🎉 | Questão concluída!", 1500);
+                for (const selector of buttonSelectors) {
+                    const button = document.querySelector(selector);
+                    
+                    if (button && button !== lastClickedButton) {
+                        const buttonText = button.innerText || button.textContent;
+                        console.log(`[KD] Botão encontrado: "${buttonText}" (${selector})`);
+                        
+                        // Verificar se é o botão de resumo
+                        if (buttonText.includes("Mostrar resumo") || buttonText.includes("Ver resumo")) {
+                            console.log('[KD] Exercício concluído!');
+                            sendToast("🎉 | Exercício concluído!", 1500);
+                            lastClickedButton = button;
+                            break;
+                        }
+                        
+                        button.click();
+                        lastClickedButton = button;
+                        clicked = true;
+                        clickCount++;
+                        console.log(`[KD] Click ${clickCount} realizado em: ${buttonText}`);
+                        break;
                     }
                 }
-                await delay(1900);
+
+                if (!clicked) {
+                    // Resetar se nenhum botão foi encontrado
+                    lastClickedButton = null;
+                }
+
+                await delay(1500); // Reduzido para 1.5s para resposta mais rápida
             }
         })();
     })();
@@ -611,7 +679,7 @@ loadScript('https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js', '
     const remainingTime = Math.max(0, 3000 - elapsedTime);
     await delay(remainingTime);
 
-    sendToast("❤️ | KhanRed iniciou!");
+    sendToast("💜 | KhanDark iniciou!");
 
     await delay(2000);
 
@@ -619,4 +687,6 @@ loadScript('https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js', '
     setupMain();
 
     console.clear();
+    console.log('%c[KhanDark] Sistema iniciado com sucesso!', 'color: #af00ff; font-size: 16px; font-weight: bold;');
+    console.log('%c[KhanDark] Logs de diagnóstico ativados', 'color: #d966ff; font-size: 12px;');
 });
